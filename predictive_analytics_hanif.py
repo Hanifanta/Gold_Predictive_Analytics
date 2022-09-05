@@ -234,3 +234,28 @@ for name, model in model_dict.items():
 models.head()
 
 models.sort_values(by='test_mse', ascending=False).plot(kind='bar', zorder=3)
+
+svr_accuracy = svr.score(X_test, y_test)*100
+knn_accuracy = knn.score(X_test, y_test)*100
+gb_accuracy = gradient_boost.score(X_test, y_test)*100
+
+list_evaluasi = [[svr_accuracy],
+            [knn_accuracy],
+            [gb_accuracy]]
+evaluasi = pd.DataFrame(list_evaluasi,
+                        columns=['Accuracy (%)'],
+                        index=['SVR','K-Nearest Neighbor', 'Gradient Boost'])
+evaluasi
+
+"""Dari hasil evaluasi di atas dapat memberikan informasi bahwa ketiga model yang dibangun memiliki performa di atas 90% hampir 100%. Dimana dapat dilihat juga bahwa model dengan algoritma KNN memiliki performa yang diukur dengan nilai akurasi yang lebih baik dari dua model lainnya yaitu model dengan algoritma SVR dan Gradient Boost."""
+
+X_30=X[-30:]
+forecast=knn.predict(X_30)
+
+df1=pd.DataFrame(forecast,columns=['Forecast'])
+df1=df.append(df1)
+df1.drop(['High', 'Low', 'Open'],axis=1,inplace=True)
+
+df1.tail(35)
+
+"""Berikut adalah nilai prediksi 30 hari kedepan yang didapat dari metode terbaik yaitu KNN yang dievaluasikan sebelumnya"""
