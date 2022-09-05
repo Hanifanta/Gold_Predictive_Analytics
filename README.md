@@ -63,16 +63,25 @@ Dataset yang digunakan memiliki format *.csv* yang mempunyai total 5291 data den
 ### Exploratory Data Analysis
 Sebelum melakukan pemrosesan data, kita harus mengetahui keadaan data. seperti mencari korelasi antar fitur, mencari outlier, melakukan analisis *univariate* dan *multivariate*.
 
-* Menangani outlier
-Jika data numerik divisualisasikan, hanya fitur *Volume* saja yang memiliki outlier. Untuk menangani outlier kita akan menggunakan IQR Method yaitu dengan menghapus data yang berada diluar IQR yaitu antara 25% dan 75%. setelah melakukan kegiatan mengatasi outlier, didapatkan sampel 4550 Data dan 7 Kolom.
+- Menangani outlier
+<br>
+<image src='https://raw.githubusercontent.com/Hanifanta/Gold_Predictive_Analytics/main/images/before_iqr.png' width= 500/>
+<br> Jika data numerik divisualisasikan, hanya fitur *Volume* saja yang memiliki outlier. Untuk menangani outlier kita akan menggunakan IQR Method yaitu dengan menghapus data yang berada diluar IQR yaitu antara 25% dan 75%. setelah melakukan kegiatan mengatasi outlier, didapatkan sampel 4550 Data dan 7 Kolom.
 
-* Univariate Analysis
-Pada kasus ini kita hanya akan berfokus dalam memprediksi *Adj Close*.
+- Univariate Analysis
+<br>
+<image src='https://raw.githubusercontent.com/Hanifanta/Gold_Predictive_Analytics/main/images/univariate.png' width= 500/>
+<br> Pada kasus ini kita hanya akan berfokus dalam memprediksi *Adj Close*.
 
-* Multivariate Analysis
-Selanjutnya kita akan menganalisis korelasi fitur *Adj Close* terhadap fitur lain seperti *Open, High, Low, Close dan Volume*. Dapat disimpulkan bahwa *Adj Close* memiliki korelasi positif yang kuat terhadap *Open, High, Low dan Close*, sedangkan untuk fitur *Volume* memiliki korelasi sedang terhadap fitur *Adj Close*.
-    
-Untuk memperjelas korelasi kita akan memvisualisasikannya menggunakan heatmap dari library Seaborn. Dapat kita lihat bahwa *Adj Close* memiliki korelasi positif tinggi pada setiap fitur, kecuali fitur *Volume* sehingga kita dapat menggunakan semua fitur sebagai *dependant variable*. 
+- Multivariate Analysis
+<br> Selanjutnya kita akan menganalisis korelasi fitur *Adj Close* terhadap fitur lain seperti *Open, High, Low, Close dan Volume*. Dapat disimpulkan bahwa *Adj Close* memiliki korelasi positif yang kuat terhadap *Open, High, Low dan Close*, sedangkan untuk fitur *Volume* memiliki korelasi sedang terhadap fitur *Adj Close*.
+<br>
+<image src='https://raw.githubusercontent.com/Hanifanta/Gold_Predictive_Analytics/main/images/multivariate.png' width= 500/>
+
+
+<br> Untuk memperjelas korelasi kita akan memvisualisasikannya menggunakan heatmap dari library Seaborn. Dapat kita lihat bahwa *Adj Close* memiliki korelasi positif tinggi pada setiap fitur, kecuali fitur *Volume* sehingga kita dapat menggunakan semua fitur sebagai *dependant variable*.
+<br>
+<image src='https://raw.githubusercontent.com/Hanifanta/Gold_Predictive_Analytics/main/images/heatmap.png' width= 500/>
     
 # Data Preparation
 ---
@@ -151,7 +160,13 @@ n = jumlah titik data
 Yi = nilai sesungguhnya
 Yi_hat = nilai prediksi
 
-Untuk proyek kali ini terdapat 2 model yang dapat berjalan dengan performa optimal yaitu, *Gradient Boosting* model dan *K-Nearest Neighbors*. Sehingga dapat disimpulkan bahwa model dapat memprediksi harga dari pasar *foreign exchange (forex)* dari data tes dengan baik. Sehingga kedepannya dapat membantu para *trader* dalam melakukan keputusan pembelian/penjualan pasar.
+Menampilkan hasil akurasi dari beberapa model yang dipakai :
+<br>
+<image src='https://raw.githubusercontent.com/Hanifanta/Gold_Predictive_Analytics/main/images/modeling.png' width=400/>
+<br>
+<image src='https://raw.githubusercontent.com/Hanifanta/Gold_Predictive_Analytics/main/images/accuracy_model.png' width=400/>
+<br>
+Untuk proyek kali ini terdapat 2 model yang dapat berjalan dengan performa optimal yaitu, *Gradient Boosting* model dan *K-Nearest Neighbors*. Terdapat selisih nilai yang sangat kecil. Tetapi pada perhitungan akurasi model terdapat model yang menggunakan *K-Nearest Neighbors* memiliki nilai lebih tinggi.
 
 # Referensi :
 ---
